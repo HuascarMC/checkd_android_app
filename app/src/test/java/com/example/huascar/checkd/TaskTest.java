@@ -23,6 +23,11 @@ public class TaskTest {
         assertEquals("Go shopping", task.getTitle() );
     }
 
+    @Test
+    public void testGetDescription() {
+        assertEquals("Go to tesco next Saturday 3pm", task.getDescription());
+    }
+
 
 
 }
