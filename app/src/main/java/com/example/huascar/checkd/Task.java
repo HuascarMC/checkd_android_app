@@ -17,4 +17,7 @@ public class Task {
         this.completed = completed;
     }
 
+    public String getTitle() {
+        return title;
+    }
 }
