@@ -30,7 +30,7 @@ public class TaskTest {
 
     @Test
     public void testGetCompleted() {
-        assertEquals(false, task.getCompleted());
+        assertEquals("false", task.getCompleted().toString());
     }
 
 
