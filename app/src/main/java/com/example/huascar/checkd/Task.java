@@ -28,4 +28,8 @@ public class Task {
     public Boolean getCompleted() {
         return completed;
     }
+
+    public void createTask(String title, String description, Boolean completed) {
+        Task task = new Task(title, description, completed);
+    }
 }
