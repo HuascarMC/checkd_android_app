@@ -5,4 +5,6 @@
     <string name="completed">completed</string>
     <string name="submit">submit</string>
     <string name="description">Description</string>
+    <string name="add_task">Add task</string>
+    <string name="all_tasks">All tasks</string>
 </resources>
