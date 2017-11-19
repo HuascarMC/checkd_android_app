@@ -2,8 +2,11 @@ package com.example.huascar.checkd;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
 
 /**
  * Created by huascar on 18/11/2017.
@@ -39,14 +42,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void createTask(String title, String description, Boolean completed, String tag) {
-        Task task = new Task(title, description, completed);
+    public void createTask(Task task) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_TITLE, title); // Shop Name
-        values.put(KEY_DESCRIPTION, description); // Shop Phone Number
-        values.put(KEY_COMPLETED, completed); // Shop Phone Number
+        values.put(KEY_TITLE, task.getTitle()); // Shop Name
+        values.put(KEY_DESCRIPTION, task.getDescription()); // Shop Phone Number
+        values.put(KEY_COMPLETED, task.getCompleted()); // Shop Phone Number
         db.insert(TABLE_NAME, null, values); // Inserting Row
         db.close(); // Closing database connection
+    }
+
+    public ArrayList<Task> getAllRecords() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NAME, null, null, null, null, null, null);
+        ArrayList<Task> taskList = new ArrayList<Task>();
+        Task taskModel;
+        if (cursor.getCount() > 0) {
+            for (int i = 0; i < cursor.getCount(); i++) {
+                cursor.moveToNext();
+                taskModel = new Task();
+                taskModel.setID(cursor.getString(0));
+                taskModel.setFirstName(cursor.getString(1));
+                taskModel.setLastName(cursor.getString(2));
+                taskList.add(taskModel);
+            }
+        }
+        cursor.close();
+        db.close();
+        return taskList;
     }
 }

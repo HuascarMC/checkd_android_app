@@ -3,6 +3,8 @@ package com.example.huascar.checkd;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+
 /**
  * Created by huascar on 17/11/2017.
  */
@@ -31,5 +33,4 @@ public class Task {
     public Boolean getCompleted() {
         return completed;
     }
-
 }
