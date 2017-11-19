@@ -1,5 +1,8 @@
 package com.example.huascar.checkd;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+
 /**
  * Created by huascar on 17/11/2017.
  */
@@ -29,7 +32,4 @@ public class Task {
         return completed;
     }
 
-    public void createTask(String title, String description, Boolean completed) {
-        Task task = new Task(title, description, completed);
-    }
 }

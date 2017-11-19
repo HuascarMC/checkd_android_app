@@ -1,5 +1,6 @@
 package com.example.huascar.checkd;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -36,5 +37,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
+    }
+
+    public void createTask(String title, String description, Boolean completed, String tag) {
+        Task task = new Task(title, description, completed);
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_TITLE, title); // Shop Name
+        values.put(KEY_DESCRIPTION, description); // Shop Phone Number
+        values.put(KEY_COMPLETED, completed); // Shop Phone Number
+        db.insert(TABLE_NAME, null, values); // Inserting Row
+        db.close(); // Closing database connection
     }
 }
