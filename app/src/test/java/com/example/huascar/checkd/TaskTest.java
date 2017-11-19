@@ -32,8 +32,4 @@ public class TaskTest {
     public void testGetCompleted() {
         assertEquals("false", task.getCompleted().toString());
     }
-
-    @Test
-    public void test
-
 }
