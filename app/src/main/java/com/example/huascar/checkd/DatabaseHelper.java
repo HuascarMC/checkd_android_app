@@ -29,7 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TASKS_TABLE = "CREATE TABLE " + TABLE_NAME + "("
         + KEY_ID + "INTEGER PRIMARY KEY," + KEY_TITLE + "TEXT,"
-        + KEY_DESCRIPTION + " TEXT," + KEY_TAG + "TEXT," + KEY_COMPLETED + "TEXT," + ")";
+        + KEY_DESCRIPTION + " TEXT," + KEY_TAG + "TEXT," + KEY_COMPLETED + "TEXT" + ")";
         db.execSQL(CREATE_TASKS_TABLE);
     }
 
