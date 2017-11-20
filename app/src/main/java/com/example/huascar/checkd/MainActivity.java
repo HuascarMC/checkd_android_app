@@ -1,6 +1,5 @@
 package com.example.huascar.checkd;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -10,11 +9,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         this.viewDesc = findViewById(R.id.viewDesc);
         this.titleInput = findViewById(R.id.titleInput);
         this.taskDesc = findViewById(R.id.taskDesc);
-        this.completedBox = findViewById(R.id.completedBox);
+        this.completedBox = findViewById(R.id.id);
     }
 
     public void onSubmitClick(View view) {

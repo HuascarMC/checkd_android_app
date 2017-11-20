@@ -1,10 +1,13 @@
 package com.example.huascar.checkd;
 
+import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,5 +26,15 @@ public class activity_task_list_main extends AppCompatActivity {
         ListView listView = findViewById(R.id.list);
 
         listView.setAdapter(taskListAdapter);
+    }
+
+    public void getTask(View listItemSelected) {
+        Task selectedTask = (Task) listItemSelected.getTag();
+        Intent intent = new Intent(this, EditTask.class);
+
+        intent.
+                startActivity(intent);
+
+        Toast.makeText(this, selectedTask.getTitle(), Toast.LENGTH_SHORT).show();
     }
 }

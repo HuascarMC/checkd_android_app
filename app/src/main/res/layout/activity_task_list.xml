@@ -7,7 +7,7 @@
     tools:context="com.example.huascar.checkd.TaskList">
 
     <TextView
-        android:id="@+id/completedBox"
+        android:id="@+id/id"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginStart="16dp"
@@ -26,7 +26,7 @@
         android:layout_marginTop="16dp"
         android:text="title "
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/completedBox"
+        app:layout_constraintStart_toEndOf="@+id/id"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -37,6 +37,6 @@
         android:layout_marginTop="12dp"
         android:text="TextView"
         android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/completedBox"
+        app:layout_constraintStart_toEndOf="@+id/id"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 </android.support.constraint.ConstraintLayout>
