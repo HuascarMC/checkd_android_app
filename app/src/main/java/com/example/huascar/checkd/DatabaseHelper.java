@@ -45,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void createTask(Task task) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_ID, task.getId().toString());
+        values.put(KEY_ID, task.getId());
         values.put(KEY_TITLE, task.getTitle()); // Shop Name
         values.put(KEY_DESCRIPTION, task.getDescription()); // Shop Phone Number
         values.put(KEY_COMPLETED, task.getCompleted()); // Shop Phone Number
