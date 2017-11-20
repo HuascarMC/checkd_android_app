@@ -40,11 +40,11 @@ public class MainActivity extends AppCompatActivity {
         String titleScan = titleInput.getText().toString();
         Log.d("name", titleScan);
 
-        String descScan = titleInput.getText().toString();
+        String descScan = taskDesc.getText().toString();
         Log.d("desc", descScan);
 
-        String completedBox = titleInput.getText().toString();
-        Log.d("completed", completedBox);
+        Boolean completedBox = this.completedBox.isEnabled();
+        Log.d("completed", completedBox.toString());
 
         Task task = new Task();
         task.setTitle(titleScan);
