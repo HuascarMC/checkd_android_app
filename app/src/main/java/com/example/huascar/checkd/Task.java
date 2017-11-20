@@ -15,9 +15,9 @@ public class Task {
     private int id;
     private String title;
     private String description;
-    private Boolean completed;
+    private String completed;
 
-    public Task(String title, String description, Boolean completed) {
+    public Task(String title, String description, String completed) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -32,7 +32,7 @@ public class Task {
         return description;
     }
 
-    public Boolean getCompleted() {
+    public String getCompleted() {
         return completed;
     }
 
@@ -48,7 +48,7 @@ public class Task {
         this.description = description;
     }
 
-    public void setCompleted(Boolean completed) {
+    public void setCompleted(String completed) {
         this.completed = completed;
     }
 }

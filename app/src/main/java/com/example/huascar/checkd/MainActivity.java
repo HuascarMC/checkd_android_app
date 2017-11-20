@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -33,7 +35,20 @@ public class MainActivity extends AppCompatActivity {
         this.completedBox = findViewById(R.id.completedBox);
     }
 
-    
+    public void onSubmitClick(View view) {
+        String titleScan = titleInput.getText().toString();
+        Log.d("name", titleScan);
+
+        String descScan = titleInput.getText().toString();
+        Log.d("desc", descScan);
+
+        String completedBox = titleInput.getText().toString();
+        Log.d("completed", completedBox);
+
+        Task task = new Task(titleScan, descScan, completedBox);
+
+        mDBHelper.createTask(task);
+    }
 
 
 
