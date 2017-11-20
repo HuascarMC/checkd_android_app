@@ -7,7 +7,7 @@
     tools:context="com.example.huascar.checkd.MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/viewDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.084" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/titleInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -36,11 +36,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/viewDesc"
         app:layout_constraintVertical_bias="0.062" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/taskDesc"
         android:layout_width="222dp"
         android:layout_height="119dp"
         android:layout_marginBottom="8dp"
@@ -53,11 +53,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/titleInput"
         app:layout_constraintVertical_bias="0.129" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/completedBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -69,11 +69,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/taskDesc"
         app:layout_constraintVertical_bias="0.189" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="56dp"
@@ -84,5 +84,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        app:layout_constraintTop_toBottomOf="@+id/completedBox" />
 </android.support.constraint.ConstraintLayout>

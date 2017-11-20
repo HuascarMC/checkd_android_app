@@ -51,24 +51,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, values); // Inserting Row
         db.close(); // Closing database connection
     }
-
-    public ArrayList<Task> getAllRecords() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_NAME, null, null, null, null, null, null);
-        ArrayList<Task> taskList = new ArrayList<Task>();
-        Task taskModel;
-        if (cursor.getCount() > 0) {
-            for (int i = 0; i < cursor.getCount(); i++) {
-                cursor.moveToNext();
-                taskModel = new Task();
-                taskModel.setID(cursor.getString(0));
-                taskModel.setFirstName(cursor.getString(1));
-                taskModel.setLastName(cursor.getString(2));
-                taskList.add(taskModel);
-            }
-        }
-        cursor.close();
-        db.close();
-        return taskList;
-    }
 }

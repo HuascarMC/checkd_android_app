@@ -4,5 +4,4 @@
 
     <item android:title="@string/add_task" />
     <item android:title="@string/all_tasks" />
-
 </menu>

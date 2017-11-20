@@ -25,14 +25,39 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Task> taskList = new ArrayList<>();
 
 
-
-        TopMoviesAdapter moviesAdapter = new TopMoviesAdapter(this, movies);
-
-        ListView listView = findViewById(R.id.list);
-
-        //this calls the getView method from the TopMoviesAdapter
-        listView.setAdapter(moviesAdapter);
     }
+
+    def save()
+    sql = "INSERT INTO users (name, budget)
+    VALUES ($1, $2) RETURNING *"
+    values = [@name, @budget]
+    @id = SqlRunner.run(sql, values)[0]['id'].to_i
+            end
+
+
+
+
+
+
+//    public ArrayList<Task> getAllRecords() {
+//        database = this.getReadableDatabase();
+//        Cursor cursor = database.query(TABLE_NAME, null, null, null, null, null, null);
+//        ArrayList<ContactModel> contacts = new ArrayList<ContactModel>();
+//        ContactModel contactModel;
+//        if (cursor.getCount() > 0) {
+//            for (int i = 0; i < cursor.getCount(); i++) {
+//                cursor.moveToNext();
+//                contactModel = new ContactModel();
+//                contactModel.setID(cursor.getString(0));
+//                contactModel.setFirstName(cursor.getString(1));
+//                contactModel.setLastName(cursor.getString(2));
+//                contacts.add(contactModel);
+//            }
+//        }
+//        cursor.close();
+//        database.close();
+//        return contacts;
+//    }
 
 
 
