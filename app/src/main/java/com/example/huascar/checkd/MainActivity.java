@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -12,6 +13,10 @@ public class MainActivity extends AppCompatActivity {
 
     private DatabaseHelper mDBHelper;
     private SQLiteDatabase mDatabase;
+    private TextView viewDesc;
+    private TextView titleInput;
+    private TextView taskDesc;
+    private TextView completedBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,17 +27,14 @@ public class MainActivity extends AppCompatActivity {
         mDatabase  = mDBHelper.getWritableDatabase();
         mDatabase.close();
 
-        ArrayList<Task> taskList = new ArrayList<>();
-
-
+        this.viewDesc = findViewById(R.id.viewDesc);
+        this.titleInput = findViewById(R.id.titleInput);
+        this.taskDesc = findViewById(R.id.taskDesc);
+        this.completedBox = findViewById(R.id.completedBox);
     }
 
-    def save()
-    sql = "INSERT INTO users (name, budget)
-    VALUES ($1, $2) RETURNING *"
-    values = [@name, @budget]
-    @id = SqlRunner.run(sql, values)[0]['id'].to_i
-            end
+    
+
 
 
 
