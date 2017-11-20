@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 public class Task {
 
+
+    // Not all have to be Strings, refactor later.
     private int id;
     private String title;
     private String description;

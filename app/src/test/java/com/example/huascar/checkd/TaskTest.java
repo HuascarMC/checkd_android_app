@@ -15,21 +15,27 @@ public class TaskTest {
 
     @Before
     public void before() {
-        task = new Task("Go shopping", "Go to tesco next Saturday 3pm", false);
+        task = new Task();
+        task.setId(1);
+        task.setTitle("Shop");
+        task.setDescription("Shopping");
+        task.setCompleted("True");
     }
 
     @Test
     public void testGetTitle() {
-        assertEquals("Go shopping", task.getTitle() );
+        assertEquals("Shop", task.getTitle() );
     }
 
     @Test
     public void testGetDescription() {
-        assertEquals("Go to tesco next Saturday 3pm", task.getDescription());
+        assertEquals("Shopping", task.getDescription());
     }
 
     @Test
     public void testGetCompleted() {
-        assertEquals("false", task.getCompleted().toString());
+        assertEquals("True", task.getCompleted().toString());
     }
+
+
 }

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -51,5 +52,8 @@ public class MainActivity extends AppCompatActivity {
         task.setCompleted(completedBox);
 
         mDBHelper.createTask(task);
+
+        Toast.makeText(this, "Task saved.",
+                Toast.LENGTH_SHORT).show();
     }
 }
