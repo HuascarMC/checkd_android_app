@@ -45,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
         String completedBox = titleInput.getText().toString();
         Log.d("completed", completedBox);
 
-        Task task = new Task(titleScan, descScan, completedBox);
+        Task task = new Task();
+        task.setTitle(titleScan);
+        task.setDescription(descScan);
+        task.setCompleted(completedBox);
 
         mDBHelper.createTask(task);
     }
