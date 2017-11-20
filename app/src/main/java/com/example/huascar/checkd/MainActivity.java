@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -65,6 +66,35 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // pop-up message
+        if (item.getItemId() == R.id.taskList) {
+            Intent intent
+                    = new Intent(
+                    this,
+                    TaskList.class);
+            startActivity(intent);
+
+            Toast.makeText(this,
+                    "Task list is being shown.",
+                    Toast.LENGTH_SHORT).show();
+
+        } else if(item.getItemId() == R.id.add_task) {
+            Intent intent
+                    = new Intent(
+                    this,
+                    MainActivity.class);
+            startActivity(intent);
+
+            Toast.makeText(this,
+                    "Add new task",
+                    Toast.LENGTH_SHORT).show();
+        }
+
         return true;
     }
 
