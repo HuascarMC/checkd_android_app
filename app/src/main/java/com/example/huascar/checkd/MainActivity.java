@@ -49,33 +49,4 @@ public class MainActivity extends AppCompatActivity {
 
         mDBHelper.createTask(task);
     }
-
-
-
-
-
-
-
-//    public ArrayList<Task> getAllRecords() {
-//        database = this.getReadableDatabase();
-//        Cursor cursor = database.query(TABLE_NAME, null, null, null, null, null, null);
-//        ArrayList<ContactModel> contacts = new ArrayList<ContactModel>();
-//        ContactModel contactModel;
-//        if (cursor.getCount() > 0) {
-//            for (int i = 0; i < cursor.getCount(); i++) {
-//                cursor.moveToNext();
-//                contactModel = new ContactModel();
-//                contactModel.setID(cursor.getString(0));
-//                contactModel.setFirstName(cursor.getString(1));
-//                contactModel.setLastName(cursor.getString(2));
-//                contacts.add(contactModel);
-//            }
-//        }
-//        cursor.close();
-//        database.close();
-//        return contacts;
-//    }
-
-
-
 }
