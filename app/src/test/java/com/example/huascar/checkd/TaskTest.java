@@ -19,7 +19,7 @@ public class TaskTest {
         task.setId(1);
         task.setTitle("Shop");
         task.setDescription("Shopping");
-        task.setCompleted("True");
+        task.setCompleted(Boolean.TRUE);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class TaskTest {
 
     @Test
     public void testGetCompleted() {
-        assertEquals("True", task.getCompleted().toString());
+        assertEquals(Boolean.TRUE, task.getCompleted().toString());
     }
 
 

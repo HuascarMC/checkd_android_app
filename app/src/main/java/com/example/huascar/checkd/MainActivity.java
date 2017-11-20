@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("completed", completedBox.toString());
 
         Task task = new Task();
+        task.setId(1);
         task.setTitle(titleScan);
         task.setDescription(descScan);
         task.setCompleted(completedBox);

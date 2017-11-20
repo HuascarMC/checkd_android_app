@@ -53,4 +53,8 @@ public class Task {
     public void setCompleted(Boolean completed) {
         this.completed = completed;
     }
+
+    public int getId() {
+        return id;
+    }
 }
