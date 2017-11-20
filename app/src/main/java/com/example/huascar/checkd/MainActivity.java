@@ -97,12 +97,4 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void onMenuInflate() {
-        Intent intent =
-                new Intent(this, TaskListAdapter.class);
-
-        TaskListAdapter taskList = new TaskListAdapter();
-
-        startActivity(intent);
-    }
 }
