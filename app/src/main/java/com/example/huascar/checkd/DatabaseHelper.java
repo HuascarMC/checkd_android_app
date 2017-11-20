@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_TAG = "tag";
     private static final String KEY_COMPLETED = "completed";
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -30,9 +30,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_TASKS_TABLE = "CREATE TABLE " + TABLE_NAME + "("
-        + KEY_ID + "INTEGER PRIMARY KEY," + KEY_TITLE + "TEXT,"
-        + KEY_DESCRIPTION + " TEXT," + KEY_TAG + "TEXT," + KEY_COMPLETED + "TEXT" + ")";
+        String CREATE_TASKS_TABLE = "CREATE TABLE " + TABLE_NAME + "( "
+        + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_TITLE + " TEXT, "
+        + KEY_DESCRIPTION + " TEXT, " + KEY_TAG + " TEXT, " + KEY_COMPLETED + " TEXT )";
         db.execSQL(CREATE_TASKS_TABLE);
     }
 
@@ -46,10 +46,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_ID, task.getId());
-        values.put(KEY_TITLE, task.getTitle()); // Shop Name
-        values.put(KEY_DESCRIPTION, task.getDescription()); // Shop Phone Number
-        values.put(KEY_COMPLETED, task.getCompleted()); // Shop Phone Number
-        db.insert(TABLE_NAME, null, values); // Inserting Row
+        values.put(KEY_TITLE, task.getTitle());
+        values.put(KEY_DESCRIPTION, task.getDescription());
+        values.put(KEY_COMPLETED, task.getCompleted());
+        db.insert(TABLE_NAME, null, values);
         db.close(); // Closing database connection
     }
 

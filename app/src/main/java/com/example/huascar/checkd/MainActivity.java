@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d("completed", completedBox.toString());
 
         Task task = new Task();
-        task.setId(1);
         task.setTitle(titleScan);
         task.setDescription(descScan);
         task.setCompleted(completedBox);
@@ -76,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent
                     = new Intent(
                     this,
-                    TaskList.class);
+                    TaskListAdapter.class);
             startActivity(intent);
 
             Toast.makeText(this,
@@ -99,21 +98,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onMenuInflate() {
-        // intent says go to here to there, where am I going when this method is called.
         Intent intent =
-                new Intent(this, TaskList.class);
+                new Intent(this, TaskListAdapter.class);
 
-        // Answers class is a class with an array of answers
-        // it's instantiated here to make the answers available
-        TaskList taskList = new TaskList();
-
-        // The answer class has a method that returns a randomAnswer
-        // it's then stored into a variable of string
-//        String randomAnswer = answers.getRandomAnswer();
-
-        // The intent class seems to have a hashMap and in that hashmap
-        // we store the randomAnswer with a key called "answer"
-//        intent.putExtra("answer", randomAnswer);
+        TaskListAdapter taskList = new TaskListAdapter();
 
         startActivity(intent);
     }
