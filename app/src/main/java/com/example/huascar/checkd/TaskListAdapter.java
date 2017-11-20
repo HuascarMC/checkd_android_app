@@ -29,11 +29,11 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
         TextView title = listItemView.findViewById(R.id.title);
         title.setText(currentTaskItem.getTitle());
 
-        TextView description = listItemView.findViewById(R.id.taskDesc);
+        TextView description = listItemView.findViewById(R.id.desc);
         description.setText(currentTaskItem.getDescription());
 
-        TextView completed = listItemView.findViewById(R.id.completedBox);
-        completed.setText(currentTaskItem.getDescription());
+//        TextView completed = listItemView.findViewById(R.id.completedBox);
+//        completed.setText(currentTaskItem.getCompleted().toString());
 
         // this line of code is to be picked up by the click event
         listItemView.setTag(currentTaskItem);

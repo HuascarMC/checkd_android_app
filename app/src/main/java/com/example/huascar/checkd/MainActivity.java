@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent
                     = new Intent(
                     this,
-                    TaskListAdapter.class);
+                    activity_task_list_main.class);
             startActivity(intent);
 
             Toast.makeText(this,
@@ -96,5 +96,4 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
-
 }

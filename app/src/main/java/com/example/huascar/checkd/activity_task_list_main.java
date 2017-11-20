@@ -21,6 +21,7 @@ public class activity_task_list_main extends AppCompatActivity {
 
         TaskListAdapter taskListAdapter = new TaskListAdapter(this, taskList);
         ListView listView = findViewById(R.id.list);
+
         listView.setAdapter(taskListAdapter);
     }
 }

@@ -19,10 +19,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_ID = "id";
     private static final String KEY_TITLE = "title";
     private static final String KEY_DESCRIPTION = "description";
-    private static final String KEY_TAG = "tag";
     private static final String KEY_COMPLETED = "completed";
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -32,7 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TASKS_TABLE = "CREATE TABLE " + TABLE_NAME + "( "
         + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_TITLE + " TEXT, "
-        + KEY_DESCRIPTION + " TEXT, " + KEY_TAG + " TEXT, " + KEY_COMPLETED + " TEXT )";
+        + KEY_DESCRIPTION + " TEXT, " + KEY_COMPLETED + " INTEGER )";
         db.execSQL(CREATE_TASKS_TABLE);
     }
 
@@ -62,7 +61,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             for (int i = 0; i < cursor.getCount(); i++) {
                 cursor.moveToNext();
                 task = new Task();
-                task.setId(Integer.parseInt(cursor.getString(0)));
+                task.setId((cursor.getString(0)));
                 task.setTitle(cursor.getString(1));
                 task.setDescription(cursor.getString(2));
                 taskList.add(task);
@@ -71,5 +70,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return taskList;
+    }
+
+    public void setTaskCompletedToBoolean(Task task, Boolean bool) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_ID, task.getId());
+        values.put(KEY_TITLE, task.getTitle());
+        values.put(KEY_DESCRIPTION, task.getDescription());
+        values.put(KEY_COMPLETED, bool);
+        String whereClause = "id=?";
+        String whereArgs[] = {task.getId().toString()};
+        db.update("Items", values, whereClause, whereArgs);
+        db.close(); // Closing database connection
+
     }
 }
