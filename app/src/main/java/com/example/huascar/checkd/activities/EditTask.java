@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +18,7 @@ public class EditTask extends AppCompatActivity {
 
     private TextView editTitle;
     private TextView editDesc;
-    private TextView editCbox;
+    private CheckBox editCbox;
     private SQLiteDatabase mDatabase;
     private DatabaseHelper mDBHelper;
     private Task taskChange;
@@ -44,6 +45,7 @@ public class EditTask extends AppCompatActivity {
 
         editTitle.setText(taskChange.getTitle());
         editDesc.setText(taskChange.getDescription());
+        editCbox.setChecked(taskChange.getCompletedBoolean());
     }
 
     public void UpdateOnClick(View update) {

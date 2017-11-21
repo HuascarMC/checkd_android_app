@@ -37,6 +37,10 @@ public class Task {
         }
     }
 
+    public Boolean getCompletedBoolean() {
+        return this.completed;
+    }
+
 
     public void setId(Integer id) {
         this.id = id;
