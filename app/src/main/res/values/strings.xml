@@ -7,4 +7,5 @@
     <string name="description">Description</string>
     <string name="add_task">Add task</string>
     <string name="all_tasks">All tasks</string>
+    <string name="update">Update</string>
 </resources>
