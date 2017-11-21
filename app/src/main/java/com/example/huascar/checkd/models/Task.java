@@ -1,4 +1,4 @@
-package com.example.huascar.checkd;
+package com.example.huascar.checkd.models;
 
 import android.content.ContentValues;
 import android.database.Cursor;

@@ -1,7 +1,6 @@
-package com.example.huascar.checkd;
+package com.example.huascar.checkd.activities;
 
 import android.content.Intent;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,11 +8,15 @@ import android.widget.ListView;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
+import com.example.huascar.checkd.R;
+import com.example.huascar.checkd.TaskListAdapter;
+import com.example.huascar.checkd.db.DatabaseHelper;
+import com.example.huascar.checkd.activities.EditTask;
+import com.example.huascar.checkd.models.Task;
+
 import java.util.ArrayList;
 
-import static android.support.v4.content.ContextCompat.startActivity;
-
-public class activity_task_list_main extends AppCompatActivity {
+public class TaskList extends AppCompatActivity {
 
     private SQLiteDatabase mDatabase;
     private DatabaseHelper mDBHelper;

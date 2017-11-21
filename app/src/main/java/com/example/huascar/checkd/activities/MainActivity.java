@@ -1,4 +1,4 @@
-package com.example.huascar.checkd;
+package com.example.huascar.checkd.activities;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,6 +11,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.huascar.checkd.R;
+import com.example.huascar.checkd.db.DatabaseHelper;
+import com.example.huascar.checkd.models.Task;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -71,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent
                     = new Intent(
                     this,
-                    activity_task_list_main.class);
+                    TaskList.class);
             startActivity(intent);
 
             Toast.makeText(this,

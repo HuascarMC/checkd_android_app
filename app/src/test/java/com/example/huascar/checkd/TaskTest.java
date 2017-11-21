@@ -1,5 +1,7 @@
 package com.example.huascar.checkd;
 
+import com.example.huascar.checkd.models.Task;
+
 import org.junit.Before;
 import org.junit.Test;
 

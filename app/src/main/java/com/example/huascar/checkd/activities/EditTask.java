@@ -1,18 +1,17 @@
-package com.example.huascar.checkd;
+package com.example.huascar.checkd.activities;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.example.huascar.checkd.R;
+import com.example.huascar.checkd.db.DatabaseHelper;
+import com.example.huascar.checkd.models.Task;
 
 public class EditTask extends AppCompatActivity {
 
