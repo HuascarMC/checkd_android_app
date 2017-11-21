@@ -15,12 +15,17 @@ import static android.support.v4.content.ContextCompat.startActivity;
 
 public class activity_task_list_main extends AppCompatActivity {
 
+    private SQLiteDatabase mDatabase;
+    private DatabaseHelper mDBHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_list_main);
 
-        DatabaseHelper mDBHelper = new DatabaseHelper(this);
+        mDBHelper = new DatabaseHelper(this);
+        mDatabase  = mDBHelper.getWritableDatabase();
+        mDatabase.close();
 
         ArrayList<Task> taskList = mDBHelper.getAllTasks();
 
@@ -39,5 +44,10 @@ public class activity_task_list_main extends AppCompatActivity {
         startActivity(intent);
 
         Toast.makeText(this, selectedTask.getTitle(), Toast.LENGTH_SHORT).show();
+    }
+
+    public void deleteTask(View view) {
+        Task selectedTask = (Task) view.getTag();
+        mDBHelper.delete(selectedTask);
     }
 }
