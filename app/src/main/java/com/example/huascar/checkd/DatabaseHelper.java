@@ -86,6 +86,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
+    public void delete(Task task) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Integer id = task.getId();
+        Cursor cursor = db.rawQuery("DELETE * FROM " + TABLE_NAME + " WHERE ID =" + id, null);
+        db.close();
+    }
+
     public Task findTaskById(Integer id) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID =" + id, null);
@@ -98,7 +105,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         task.setTitle(cursor.getString(1));
         task.setDescription(cursor.getString(2));
         task.setCompleted(cursor.getInt(3) == 1 );
-
+        db.close();
         return task;
     }
 
