@@ -92,6 +92,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID =" + id, null);
 
         Task task = new Task();
+
+        cursor.moveToFirst();
+
         task.setId(cursor.getInt(0));
         task.setTitle(cursor.getString(1));
         task.setDescription(cursor.getString(2));

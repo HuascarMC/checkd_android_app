@@ -31,8 +31,8 @@ public class activity_task_list_main extends AppCompatActivity {
     }
 
 
-    public void getTask(View listItemSelected) {
-        Task selectedTask = (Task) listItemSelected.getTag();
+    public void getTask(View viewMore) {
+        Task selectedTask = (Task) viewMore.getTag();
         Intent intent = new Intent(this, EditTask.class);
 
         intent.putExtra("taskId", selectedTask.getId());
