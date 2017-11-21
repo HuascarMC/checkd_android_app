@@ -1,17 +1,27 @@
 package com.example.huascar.checkd;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static android.support.v4.content.ContextCompat.startActivity;
+
 public class TaskListAdapter extends ArrayAdapter<Task> {
+
+    private TextView viewDesc;
+    private TextView titleInput;
+    private TextView taskDesc;
+    private TextView completedBox;
 
     public TaskListAdapter(Context context, ArrayList<Task> tasks) {
         super(context, 0, tasks);
@@ -33,11 +43,41 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
         description.setText(currentTaskItem.getDescription());
 
         TextView completed = listItemView.findViewById(R.id.id);
-        completed.setText(currentTaskItem.getId());
+        completed.setText(Integer.toString(currentTaskItem.getId()));
 
         // this line of code is to be picked up by the click event
         listItemView.setTag(currentTaskItem);
 
         return listItemView;
         }
+
+    public void onDescClick(View view) {
+        String titleScan = titleInput.getText().toString();
+        Log.d("name", titleScan);
+
+        String descScan = taskDesc.getText().toString();
+        Log.d("desc", descScan);
+
+        Boolean completedBox = this.completedBox.isEnabled();
+        Log.d("completed", completedBox.toString());
+
+        Task task = new Task();
+        task.setTitle(titleScan);
+        task.setDescription(descScan);
+        task.setCompleted(completedBox);
+
+
+        Toast.makeText(this, "Task saved.",
+                Toast.LENGTH_SHORT).show();
+    }
+
+    public void getTask(View listItemSelected) {
+        Task selectedTask = (Task) listItemSelected.getTag();
+        Intent intent = new Intent(this, EditTask.class);
+
+        intent.putExtra("taskId", selectedTask.getId());
+        startActivity(intent);
+
+        Toast.makeText(this, selectedTask.getTitle(), Toast.LENGTH_SHORT).show();
+    }
 }

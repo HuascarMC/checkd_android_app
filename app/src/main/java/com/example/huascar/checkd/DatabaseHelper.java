@@ -44,7 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void createTask(Task task) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_ID, task.getId());
+//        values.put(KEY_ID, task.getId());
         values.put(KEY_TITLE, task.getTitle());
         values.put(KEY_DESCRIPTION, task.getDescription());
         values.put(KEY_COMPLETED, task.getCompleted());
@@ -61,9 +61,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             for (int i = 0; i < cursor.getCount(); i++) {
                 cursor.moveToNext();
                 task = new Task();
-                task.setId((cursor.getString(0)));
+                task.setId((cursor.getInt(0)));
                 task.setTitle(cursor.getString(1));
                 task.setDescription(cursor.getString(2));
+                task.setCompleted(cursor.getInt(3) == 1 );
+
                 taskList.add(task);
             }
         }
@@ -72,17 +74,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return taskList;
     }
 
-    public void setTaskCompletedToBoolean(Task task, Boolean bool) {
+    public void update(Task task) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_ID, task.getId());
+//        values.put(KEY_ID, task.getId());
         values.put(KEY_TITLE, task.getTitle());
         values.put(KEY_DESCRIPTION, task.getDescription());
-        values.put(KEY_COMPLETED, bool);
+        values.put(KEY_COMPLETED, task.getCompleted());
         String whereClause = "id=?";
         String whereArgs[] = {task.getId().toString()};
         db.update("Items", values, whereClause, whereArgs);
         db.close(); // Closing database connection
-
     }
+
+    public Task findTaskById(Integer id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE ID =" + id, null);
+
+        Task task = new Task();
+        task.setId(cursor.getInt(0));
+        task.setTitle(cursor.getString(1));
+        task.setDescription(cursor.getString(2));
+        task.setCompleted(cursor.getInt(3) == 1 );
+
+        return task;
+    }
+
+
 }

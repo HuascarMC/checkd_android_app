@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static android.support.v4.content.ContextCompat.startActivity;
+
 public class activity_task_list_main extends AppCompatActivity {
 
     @Override
@@ -28,12 +30,13 @@ public class activity_task_list_main extends AppCompatActivity {
         listView.setAdapter(taskListAdapter);
     }
 
+
     public void getTask(View listItemSelected) {
         Task selectedTask = (Task) listItemSelected.getTag();
         Intent intent = new Intent(this, EditTask.class);
 
-        intent.
-                startActivity(intent);
+        intent.putExtra("taskId", selectedTask.getId());
+        startActivity(intent);
 
         Toast.makeText(this, selectedTask.getTitle(), Toast.LENGTH_SHORT).show();
     }

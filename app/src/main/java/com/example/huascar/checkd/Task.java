@@ -14,17 +14,12 @@ public class Task {
 
 
     // Not all have to be Strings, refactor later.
-    private String id;
+    private int id;
     private String title;
     private String description;
     private Boolean completed;
 
-    public Task() {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.completed = completed;
-    }
+
 
     public String getTitle() {
         return title;
@@ -38,7 +33,8 @@ public class Task {
         return completed;
     }
 
-    public void setId(String id) {
+
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -54,7 +50,7 @@ public class Task {
         this.completed = completed;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 }
