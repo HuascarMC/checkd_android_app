@@ -38,9 +38,6 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
         TextView description = listItemView.findViewById(R.id.desc);
         description.setText(currentTaskItem.getDescription());
 
-        TextView completed = listItemView.findViewById(R.id.id);
-        completed.setText(Integer.toString(currentTaskItem.getId()));
-
         Button viewMore = listItemView.findViewById(R.id.button2);
         viewMore.setTag(currentTaskItem);
 
