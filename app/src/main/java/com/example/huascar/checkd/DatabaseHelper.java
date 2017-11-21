@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -88,8 +89,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void delete(Task task) {
         SQLiteDatabase db = this.getWritableDatabase();
-        int id = task.getId();
-        db.rawQuery("DELETE * FROM " + TABLE_NAME + " WHERE ID =" + id, null);
+        Integer id = task.getId();
+        db.execSQL("DELETE FROM " + TABLE_NAME + " WHERE ID =" + id);
+        Log.d("delete", "has been deleted");
         db.close();
     }
 
