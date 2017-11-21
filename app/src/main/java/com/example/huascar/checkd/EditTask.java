@@ -7,6 +7,7 @@ import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,7 +46,7 @@ public class EditTask extends AppCompatActivity {
         editDesc.setText(task.getDescription());
     }
 
-    public void UpdateOnClick(Button update) {
+    public void UpdateOnClick(View update) {
 
         String titleScan = editTitle.getText().toString();
         Log.d("name", titleScan);
@@ -61,9 +62,9 @@ public class EditTask extends AppCompatActivity {
         task.setDescription(descScan);
         task.setCompleted(completedBox);
 
-        mDBHelper.createTask(task);
+        mDBHelper.update(task);
 
-        Toast.makeText(this, "Task saved.",
+        Toast.makeText(this, "Task updated.",
                 Toast.LENGTH_SHORT).show();
     }
 }
