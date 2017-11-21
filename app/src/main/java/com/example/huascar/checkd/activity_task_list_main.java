@@ -46,8 +46,8 @@ public class activity_task_list_main extends AppCompatActivity {
         Toast.makeText(this, selectedTask.getTitle(), Toast.LENGTH_SHORT).show();
     }
 
-    public void deleteTask(View view) {
-        Task selectedTask = (Task) view.getTag();
+    public void deleteTask(View delete) {
+        Task selectedTask = (Task) delete.getTag();
         mDBHelper.delete(selectedTask);
     }
 }

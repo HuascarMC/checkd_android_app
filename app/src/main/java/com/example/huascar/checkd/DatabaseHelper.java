@@ -89,7 +89,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void delete(Task task) {
         SQLiteDatabase db = this.getWritableDatabase();
         int id = task.getId();
-        Cursor cursor = db.rawQuery("DELETE * FROM " + TABLE_NAME + " WHERE ID =" + id, null);
+        db.rawQuery("DELETE * FROM " + TABLE_NAME + " WHERE ID =" + id, null);
         db.close();
     }
 

@@ -50,6 +50,9 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
 
         Button viewMore = listItemView.findViewById(R.id.button2);
         viewMore.setTag(currentTaskItem);
+
+        Button delete = listItemView.findViewById(R.id.delete);
+        delete.setTag(currentTaskItem);
         // this line of code is to be picked up by the click event
 //        listItemView.setTag(currentTaskItem);
 
