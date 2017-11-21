@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.example.huascar.checkd.models.Task;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -112,6 +113,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return task;
     }
+
+//    public ArrayList<Task> arrayOfTask() {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        ArrayList<Task> tasks = new ArrayList<>();
+//        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+//
+//        cursor.moveToFirst();
+//
+//        while (cursor.moveToNext()) {
+//            Task task = new Task();
+//            task.setId(cursor.getInt(0));
+//            task.setTitle(cursor.getString(1));
+//            task.setDescription(cursor.getString(2));
+//            task.setCompleted(cursor.getInt(3) == 1 );
+//            tasks.add(task);
+//
+//        }
+//        return tasks;
+//    }
 
 
 }

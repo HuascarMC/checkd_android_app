@@ -7,9 +7,11 @@ import android.view.View;
 import android.widget.ListView;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.huascar.checkd.R;
 import com.example.huascar.checkd.TaskListAdapter;
+import com.example.huascar.checkd.actions.SwipeDismissListViewTouchListener;
 import com.example.huascar.checkd.db.DatabaseHelper;
 import com.example.huascar.checkd.activities.EditTask;
 import com.example.huascar.checkd.models.Task;
@@ -20,6 +22,7 @@ public class TaskList extends AppCompatActivity {
 
     private SQLiteDatabase mDatabase;
     private DatabaseHelper mDBHelper;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +33,37 @@ public class TaskList extends AppCompatActivity {
         mDatabase  = mDBHelper.getWritableDatabase();
         mDatabase.close();
 
-        ArrayList<Task> taskList = mDBHelper.getAllTasks();
+        final ArrayList<Task> taskList = mDBHelper.getAllTasks();
 
-        TaskListAdapter taskListAdapter = new TaskListAdapter(this, taskList);
+        final TaskListAdapter taskListAdapter = new TaskListAdapter(this, taskList);
         ListView listView = findViewById(R.id.list);
 
         listView.setAdapter(taskListAdapter);
+
+        SwipeDismissListViewTouchListener touchListener =
+                new SwipeDismissListViewTouchListener(
+                        listView,
+                        new SwipeDismissListViewTouchListener.DismissCallbacks() {
+                            @Override
+                            public boolean canDismiss(int position) {
+                                return true;
+                            }
+
+                            @Override
+                            public void onDismiss(ListView listView, int[] reverseSortedPositions) {
+                                for (int position : reverseSortedPositions) {
+
+                                    Task selectedTask = (Task) listView.getTag();
+//                                    mDBHelper.delete(selectedTask);
+                                    taskList.remove(position);
+                                    taskListAdapter.notifyDataSetChanged();
+
+                                }
+
+                            }
+                        });
+        listView.setOnTouchListener(touchListener);
+
     }
 
 

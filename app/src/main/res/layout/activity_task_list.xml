@@ -4,63 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/red"
     tools:context="com.example.huascar.checkd.TaskListAdapter">
 
     <TextView
-        android:id="@+id/id"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="1"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="36sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/title"
-        android:layout_width="214dp"
-        android:layout_height="30dp"
+        android:layout_width="169dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="title "
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/desc"
-        android:layout_width="120sp"
+        android:layout_width="173dp"
         android:layout_height="16dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
         android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/id"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:layout_editor_absoluteX="31dp" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="45dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Button"
+        android:layout_width="43dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
         android:onClick="getTask"
-        app:layout_constraintStart_toEndOf="@+id/desc"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/title"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/delete"
-        android:layout_width="50dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="36dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
-        android:text="Button"
+        android:layout_marginTop="16dp"
         android:onClick="deleteTask"
+        android:text="-"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.827"
         app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
