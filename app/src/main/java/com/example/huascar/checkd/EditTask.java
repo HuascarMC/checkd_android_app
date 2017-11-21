@@ -21,6 +21,7 @@ public class EditTask extends AppCompatActivity {
     private TextView editCbox;
     private SQLiteDatabase mDatabase;
     private DatabaseHelper mDBHelper;
+    private Task taskChange;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +37,14 @@ public class EditTask extends AppCompatActivity {
         Bundle extra = intent.getExtras();
         int taskId = extra.getInt("taskId");
 
-        Task task = mDBHelper.findTaskById(taskId);
+        taskChange = mDBHelper.findTaskById(taskId);
 
         editTitle = findViewById(R.id.editTitle);
         editDesc = findViewById(R.id.editDesc);
         editCbox = findViewById(R.id.editCbox);
 
-        editTitle.setText(task.getTitle());
-        editDesc.setText(task.getDescription());
+        editTitle.setText(taskChange.getTitle());
+        editDesc.setText(taskChange.getDescription());
     }
 
     public void UpdateOnClick(View update) {
@@ -62,9 +63,12 @@ public class EditTask extends AppCompatActivity {
         task.setDescription(descScan);
         task.setCompleted(completedBox);
 
-        mDBHelper.update(task);
+        mDBHelper.update(taskChange, task);
 
         Toast.makeText(this, "Task updated.",
                 Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

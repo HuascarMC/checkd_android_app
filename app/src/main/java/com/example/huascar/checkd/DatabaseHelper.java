@@ -74,15 +74,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return taskList;
     }
 
-    public void update(Task task) {
+    public void update(Task taskChange, Task task) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-//        values.put(KEY_ID, task.getId());
         values.put(KEY_TITLE, task.getTitle());
         values.put(KEY_DESCRIPTION, task.getDescription());
         values.put(KEY_COMPLETED, task.getCompleted());
         String whereClause = "id=?";
-        String whereArgs[] = {task.getId().toString()};
+        String whereArgs[] = {taskChange.getId().toString()};
         db.update("Tasks", values, whereClause, whereArgs);
         db.close(); // Closing database connection
     }
