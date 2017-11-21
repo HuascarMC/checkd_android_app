@@ -35,7 +35,6 @@
         android:layout_height="16dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
-        android:onClick="getTask"
         android:text="TextView"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/id"
