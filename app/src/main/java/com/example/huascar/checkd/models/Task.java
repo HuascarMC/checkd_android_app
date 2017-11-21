@@ -29,8 +29,12 @@ public class Task {
         return description;
     }
 
-    public Boolean getCompleted() {
-        return completed;
+    public String getCompleted() {
+        if (this.completed == true) {
+            return "true";
+        } else {
+            return "false";
+        }
     }
 
 
