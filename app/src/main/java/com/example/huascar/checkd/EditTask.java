@@ -37,9 +37,12 @@ public class EditTask extends AppCompatActivity {
 
         Task task = mDBHelper.findTaskById(taskId);
 
-        TextView editTitle = findViewById(R.id.editTitle);
-        TextView editDesc = findViewById(R.id.editDesc);
-        TextView editCbox = findViewById(R.id.editCbox);
+        editTitle = findViewById(R.id.editTitle);
+        editDesc = findViewById(R.id.editDesc);
+        editCbox = findViewById(R.id.editCbox);
+
+        editTitle.setText(task.getTitle());
+        editDesc.setText(task.getDescription());
     }
 
     public void UpdateOnClick(Button update) {
