@@ -49,5 +49,9 @@ public class activity_task_list_main extends AppCompatActivity {
     public void deleteTask(View delete) {
         Task selectedTask = (Task) delete.getTag();
         mDBHelper.delete(selectedTask);
+
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 }
