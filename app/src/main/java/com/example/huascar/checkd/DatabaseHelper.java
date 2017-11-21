@@ -83,7 +83,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_COMPLETED, task.getCompleted());
         String whereClause = "id=?";
         String whereArgs[] = {task.getId().toString()};
-        db.update("Items", values, whereClause, whereArgs);
+        db.update("Tasks", values, whereClause, whereArgs);
         db.close(); // Closing database connection
     }
 
