@@ -60,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Task saved.",
                 Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     public Boolean checkCheckbox(CheckBox checkBox) {
