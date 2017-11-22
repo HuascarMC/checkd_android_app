@@ -91,7 +91,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 task.setTitle(cursor.getString(1));
                 task.setDescription(cursor.getString(2));
                 task.setCompleted(cursor.getInt(3) == 1 );
-                
+
                 if (task.getCompletedBoolean() == true) {
                     taskList.add(task);
                 }

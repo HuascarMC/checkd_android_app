@@ -24,7 +24,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".CheckdTaskList"></activity>
+        <activity android:name=".activities.EditTask$CheckdTaskList" />
+        <activity android:name=".activities.CheckdTaskList"></activity>
     </application>
 
 </manifest>

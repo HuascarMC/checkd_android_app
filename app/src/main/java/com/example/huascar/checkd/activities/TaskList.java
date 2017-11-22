@@ -8,14 +8,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
-import com.example.huascar.checkd.CheckdTaskList;
 import com.example.huascar.checkd.R;
 import com.example.huascar.checkd.TaskListAdapter;
 import com.example.huascar.checkd.actions.SwipeDismissListViewTouchListener;
 import com.example.huascar.checkd.db.DatabaseHelper;
-import com.example.huascar.checkd.activities.EditTask;
 import com.example.huascar.checkd.models.Task;
 
 import java.util.ArrayList;
@@ -92,7 +89,7 @@ public class TaskList extends AppCompatActivity {
     }
 
     public void CompletedTasks(Button checkd) {
-        Intent intent = new Intent(this, CheckdTaskList.class);
+        Intent intent = new Intent(this, EditTask.CheckdTaskList.class);
         startActivity(intent);
     }
 }
