@@ -53,9 +53,13 @@ public class TaskList extends AppCompatActivity {
                             public void onDismiss(ListView listView, int[] reverseSortedPositions) {
                                 for (int position : reverseSortedPositions) {
 
-                                    Task selectedTask = (Task) listView.getTag();
-//                                    mDBHelper.delete(selectedTask);
                                     taskList.remove(position);
+
+
+                                    Task task = taskList.get(position);
+
+                                    mDBHelper.delete(task);
+
                                     taskListAdapter.notifyDataSetChanged();
 
                                 }

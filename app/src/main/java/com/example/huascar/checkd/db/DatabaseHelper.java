@@ -83,7 +83,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_TITLE, task.getTitle());
         values.put(KEY_DESCRIPTION, task.getDescription());
-        values.put(KEY_COMPLETED, task.getCompleted());
+        values.put(KEY_COMPLETED, task.getCompletedBoolean());
         String whereClause = "id=?";
         String whereArgs[] = {taskChange.getId().toString()};
         db.update("Tasks", values, whereClause, whereArgs);
@@ -91,8 +91,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void delete(Task task) {
-        SQLiteDatabase db = this.getWritableDatabase();
         Integer id = task.getId();
+        delete(id);
+    }
+
+
+
+    public void delete(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME + " WHERE ID =" + id);
         Log.d("delete", "has been deleted");
         db.close();
@@ -105,6 +111,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Task task = new Task();
 
         cursor.moveToFirst();
+        
 
         task.setId(cursor.getInt(0));
         task.setTitle(cursor.getString(1));
@@ -113,25 +120,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return task;
     }
-
-//    public ArrayList<Task> arrayOfTask() {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        ArrayList<Task> tasks = new ArrayList<>();
-//        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-//
-//        cursor.moveToFirst();
-//
-//        while (cursor.moveToNext()) {
-//            Task task = new Task();
-//            task.setId(cursor.getInt(0));
-//            task.setTitle(cursor.getString(1));
-//            task.setDescription(cursor.getString(2));
-//            task.setCompleted(cursor.getInt(3) == 1 );
-//            tasks.add(task);
-//
-//        }
-//        return tasks;
-//    }
-
 
 }
