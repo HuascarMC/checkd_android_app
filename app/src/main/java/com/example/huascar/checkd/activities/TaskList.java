@@ -92,4 +92,9 @@ public class TaskList extends AppCompatActivity {
         Intent intent = new Intent(this, CheckdTaskList.class);
         startActivity(intent);
     }
+
+    public void UncompletedTasks(View uncheckd) {
+        Intent intent = new Intent(this, UncheckdTaskList.class);
+        startActivity(intent);
+    }
 }
