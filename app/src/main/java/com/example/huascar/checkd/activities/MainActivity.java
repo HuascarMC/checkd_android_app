@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView viewDesc;
     private TextView titleInput;
     private TextView taskDesc;
-    private TextView completedBox;
+    private CheckBox completedBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         String descScan = taskDesc.getText().toString();
         Log.d("desc", descScan);
 
-        Boolean completedBox = this.completedBox.isEnabled();
+        Boolean completedBox = checkCheckbox(this.completedBox);
         Log.d("completed", completedBox.toString());
 
         Task task = new Task();
@@ -59,6 +60,14 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Task saved.",
                 Toast.LENGTH_SHORT).show();
+    }
+
+    public Boolean checkCheckbox(CheckBox checkBox) {
+        if (this.completedBox.isChecked()) {
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
