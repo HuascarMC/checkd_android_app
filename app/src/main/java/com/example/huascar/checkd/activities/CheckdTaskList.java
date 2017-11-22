@@ -7,6 +7,7 @@ import android.widget.ListView;
 
 import com.example.huascar.checkd.R;
 import com.example.huascar.checkd.TaskListAdapter;
+import com.example.huascar.checkd.TaskListCheckdAdapter;
 import com.example.huascar.checkd.db.DatabaseHelper;
 import com.example.huascar.checkd.models.Task;
 
@@ -28,10 +29,10 @@ public class CheckdTaskList extends AppCompatActivity {
 
         final ArrayList<Task> taskList = mDBHelper.getAllCheckdTasks();
 
-        final TaskListAdapter taskListAdapter = new TaskListAdapter(this, taskList);
+        final TaskListCheckdAdapter taskListCheckdAdapter = new TaskListCheckdAdapter(this, taskList);
         ListView listView = findViewById(R.id.checkdlist);
 
-        listView.setAdapter(taskListAdapter);
+        listView.setAdapter(taskListCheckdAdapter);
 
     }
 }
