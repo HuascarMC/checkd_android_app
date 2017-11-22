@@ -51,7 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //        values.put(KEY_ID, task.getId());
         values.put(KEY_TITLE, task.getTitle());
         values.put(KEY_DESCRIPTION, task.getDescription());
-        values.put(KEY_COMPLETED, task.getCompleted());
+        values.put(KEY_COMPLETED, task.getCompletedBoolean());
         db.insert(TABLE_NAME, null, values);
         db.close(); // Closing database connection
     }
