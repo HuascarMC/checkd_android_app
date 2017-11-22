@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.huascar.checkd.CheckdTaskList;
 import com.example.huascar.checkd.R;
 import com.example.huascar.checkd.TaskListAdapter;
 import com.example.huascar.checkd.actions.SwipeDismissListViewTouchListener;
@@ -87,6 +89,11 @@ public class TaskList extends AppCompatActivity {
 
         Intent intent = getIntent();
         finish();
+        startActivity(intent);
+    }
+
+    public void CompletedTasks(Button checkd) {
+        Intent intent = new Intent(this, CheckdTaskList.class);
         startActivity(intent);
     }
 }
