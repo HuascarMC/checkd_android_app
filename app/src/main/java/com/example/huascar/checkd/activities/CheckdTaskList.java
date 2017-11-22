@@ -22,9 +22,6 @@ public class CheckdTaskList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkd_task_list);
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task_list_main);
-
         mDBHelper = new DatabaseHelper(this);
         mDatabase  = mDBHelper.getWritableDatabase();
         mDatabase.close();
@@ -32,7 +29,7 @@ public class CheckdTaskList extends AppCompatActivity {
         final ArrayList<Task> taskList = mDBHelper.getAllCheckdTasks();
 
         final TaskListAdapter taskListAdapter = new TaskListAdapter(this, taskList);
-        ListView listView = findViewById(R.id.list);
+        ListView listView = findViewById(R.id.checkdlist);
 
         listView.setAdapter(taskListAdapter);
 

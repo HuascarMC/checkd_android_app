@@ -28,6 +28,7 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
 
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.activity_task_list, parent, false);
+
         }
 
         Task currentTaskItem = getItem(position);

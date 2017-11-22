@@ -88,8 +88,8 @@ public class TaskList extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void CompletedTasks(Button checkd) {
-        Intent intent = new Intent(this, EditTask.CheckdTaskList.class);
+    public void CompletedTasks(View checkd) {
+        Intent intent = new Intent(this, CheckdTaskList.class);
         startActivity(intent);
     }
 }
