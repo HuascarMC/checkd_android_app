@@ -24,7 +24,6 @@ public class TaskList extends AppCompatActivity {
 
     private SQLiteDatabase mDatabase;
     private DatabaseHelper mDBHelper;
-    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
