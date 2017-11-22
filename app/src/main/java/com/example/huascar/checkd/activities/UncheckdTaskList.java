@@ -30,7 +30,7 @@ public class UncheckdTaskList extends AppCompatActivity {
         final ArrayList<Task> taskList = mDBHelper.getAllCheckdTasks();
 
         final TaskListUncheckdAdapter taskListUncheckdAdapter = new TaskListUncheckdAdapter(this, taskList);
-        ListView listView = findViewById(R.id.uncheckdList);
+        ListView listView = findViewById(R.id.uncheckdlist);
 
         listView.setAdapter(taskListUncheckdAdapter);
     }

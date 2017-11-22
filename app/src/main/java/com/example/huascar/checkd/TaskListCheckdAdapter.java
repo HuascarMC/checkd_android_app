@@ -31,7 +31,7 @@ public class TaskListCheckdAdapter extends ArrayAdapter{
     public View getView(int position, View listItemView, ViewGroup parent) {
 
         if (listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.activity_checkd_task_list, parent, false);
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.activity_task_list, parent, false);
 
         }
 
