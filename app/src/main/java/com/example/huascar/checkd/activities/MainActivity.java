@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView titleInput;
     private TextView taskDesc;
     private CheckBox completedBox;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +44,8 @@ public class MainActivity extends AppCompatActivity {
         this.taskDesc = findViewById(R.id.taskDesc);
         this.completedBox = findViewById(R.id.id);
 
-        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        int progress = getProgress();
-        progressBar.setProgress(progress);
+        progressBar = findViewById(R.id.progressBar);
+        getProgress();
 
     }
 
@@ -117,24 +117,18 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public int getProgress() {
+    public void getProgress() {
         ArrayList<Task> completed = mDBHelper.getAllCheckdTasks();
         ArrayList<Task> tasks = mDBHelper.getAllTasks();
         int completedTasks = 0;
-        int allTasks = 0;
+        int allTasks = tasks.size();
+
         for(Task completedTask : completed) {
             completedTasks ++;
         }
 
-        for(Task task : tasks) {
-            allTasks ++;
-        }
-
-        if(completed != null || tasks != null) {
-            int progress = (completedTasks / allTasks) * 100;
-            return progress;
-        } else {
-            return 0;
-        }
+        int progress = ((completedTasks*100)/allTasks);
+        Log.d("progress", Integer.toString(progress));
+        progressBar.setProgress(progress);
     }
 }
