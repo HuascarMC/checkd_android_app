@@ -3,7 +3,6 @@ package com.example.huascar.checkd.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ListView;
 import android.database.sqlite.SQLiteDatabase;
@@ -28,7 +27,7 @@ public class TaskList extends AppCompatActivity {
         setContentView(R.layout.activity_task_list_main);
 
         mDBHelper = new DatabaseHelper(this);
-        mDatabase  = mDBHelper.getWritableDatabase();
+        mDatabase = mDBHelper.getWritableDatabase();
         mDatabase.close();
 
         final ArrayList<Task> taskList = mDBHelper.getAllTasks();
@@ -52,7 +51,6 @@ public class TaskList extends AppCompatActivity {
                                 for (int position : reverseSortedPositions) {
 
 
-
                                     taskList.remove(position);
                                     Task task = taskList.get(position);
 
@@ -66,6 +64,10 @@ public class TaskList extends AppCompatActivity {
                         });
         listView.setOnTouchListener(touchListener);
     }
+
+
+
+
 
 
     public void getTask(View viewMore) {
