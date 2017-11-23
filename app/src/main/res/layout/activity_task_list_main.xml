@@ -23,13 +23,13 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="169dp"
-        android:layout_height="48dp"
+        android:layout_width="148dp"
+        android:layout_height="45dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="@string/checkd"
         android:onClick="CompletedTasks"
+        android:text="@string/checkd"
         app:layout_constraintBottom_toTopOf="@+id/list"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -37,8 +37,8 @@
 
     <Button
         android:id="@+id/uncheckd"
-        android:layout_width="183dp"
-        android:layout_height="49dp"
+        android:layout_width="163dp"
+        android:layout_height="45dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="156dp"

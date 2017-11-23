@@ -10,12 +10,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.huascar.checkd.R;
 import com.example.huascar.checkd.db.DatabaseHelper;
 import com.example.huascar.checkd.models.Task;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
         this.titleInput = findViewById(R.id.titleInput);
         this.taskDesc = findViewById(R.id.taskDesc);
         this.completedBox = findViewById(R.id.id);
+
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        int progress = getProgress();
+        progressBar.setProgress(progress);
+
     }
 
     public void onSubmitClick(View view) {
@@ -107,5 +115,26 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    public int getProgress() {
+        ArrayList<Task> completed = mDBHelper.getAllCheckdTasks();
+        ArrayList<Task> tasks = mDBHelper.getAllTasks();
+        int completedTasks = 0;
+        int allTasks = 0;
+        for(Task completedTask : completed) {
+            completedTasks ++;
+        }
+
+        for(Task task : tasks) {
+            allTasks ++;
+        }
+
+        if(completed != null || tasks != null) {
+            int progress = (completedTasks / allTasks) * 100;
+            return progress;
+        } else {
+            return 0;
+        }
     }
 }
