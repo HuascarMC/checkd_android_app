@@ -5,14 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
 import com.example.huascar.checkd.R;
 import com.example.huascar.checkd.TaskListAdapter;
-import com.example.huascar.checkd.actions.OnSwipeTouchListener;
 import com.example.huascar.checkd.actions.SwipeDismissListViewTouchListener;
 import com.example.huascar.checkd.db.DatabaseHelper;
 import com.example.huascar.checkd.models.Task;
@@ -40,53 +38,33 @@ public class TaskList extends AppCompatActivity {
 
         listView.setAdapter(taskListAdapter);
 
-//        SwipeDismissListViewTouchListener touchListener =
-//                new SwipeDismissListViewTouchListener(
-//                        listView,
-//                        new SwipeDismissListViewTouchListener.DismissCallbacks() {
-//                            @Override
-//                            public boolean canDismiss(int position) {
-//                                return true;
-//                            }
-//
-//                            @Override
-//                            public void onDismiss(ListView listView, int[] reverseSortedPositions) {
-//                                for (int position : reverseSortedPositions) {
-//
-//
-//
-//                                    taskList.remove(position);
-//                                    Task task = taskList.get(position);
-//
-//                                    mDBHelper.delete(task);
-//
-//                                    taskListAdapter.notifyDataSetChanged();
-//
-//                                }
-//
-//                            }
-//                        });
-//        listView.setOnTouchListener(touchListener);
+        SwipeDismissListViewTouchListener touchListener =
+                new SwipeDismissListViewTouchListener(
+                        listView,
+                        new SwipeDismissListViewTouchListener.DismissCallbacks() {
+                            @Override
+                            public boolean canDismiss(int position) {
+                                return true;
+                            }
 
-        listView.setOnTouchListener(new OnSwipeTouchListener(TaskList.this) {
-            public void onSwipeTop() {
-                Toast.makeText(TaskList.this, "top", Toast.LENGTH_SHORT).show();
-            }
-            public void onSwipeRight() {
-                Toast.makeText(TaskList.this, "right", Toast.LENGTH_SHORT).show();
-            }
-            public void onSwipeLeft() {
-                Toast.makeText(TaskList.this, "left", Toast.LENGTH_SHORT).show();
-            }
-            public void onSwipeBottom() {
-                Toast.makeText(TaskList.this, "bottom", Toast.LENGTH_SHORT).show();
-            }
+                            @Override
+                            public void onDismiss(ListView listView, int[] reverseSortedPositions) {
+                                for (int position : reverseSortedPositions) {
 
-            public boolean onTouch(View v, MotionEvent event) {
-                return gestureDetector.onTouchEvent(event);
-            }
-        });
 
+
+                                    taskList.remove(position);
+                                    Task task = taskList.get(position);
+
+                                    mDBHelper.delete(task);
+
+                                    taskListAdapter.notifyDataSetChanged();
+
+                                }
+
+                            }
+                        });
+        listView.setOnTouchListener(touchListener);
     }
 
 
