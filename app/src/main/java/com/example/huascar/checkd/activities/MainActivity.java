@@ -2,6 +2,7 @@ package com.example.huascar.checkd.activities;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -65,6 +67,16 @@ public class MainActivity extends AppCompatActivity {
         task.setCompleted(completedBox);
 
         mDBHelper.createTask(task);
+
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.sound);
+
+        Button play_button = (Button)this.findViewById(R.id.button);
+        play_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Log.v("sound", "Playing sound...");
+                mp.start();
+            }
+        });
 
         Toast.makeText(this, "Task saved.",
                 Toast.LENGTH_SHORT).show();
@@ -127,8 +139,14 @@ public class MainActivity extends AppCompatActivity {
             completedTasks ++;
         }
 
-        int progress = ((completedTasks*100)/allTasks);
-        Log.d("progress", Integer.toString(progress));
-        progressBar.setProgress(progress);
+        if (allTasks != 0) {
+            int progress = ((completedTasks*100)/allTasks);
+            progressBar.setProgress(progress);
+            Log.d("progress", Integer.toString(progress));
+        } else {
+            progressBar.setProgress(0);
+        }
+
+
     }
 }
