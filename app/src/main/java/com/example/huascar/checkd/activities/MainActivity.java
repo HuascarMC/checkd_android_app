@@ -3,6 +3,7 @@ package com.example.huascar.checkd.activities;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -49,9 +50,12 @@ public class MainActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         getProgress();
 
+
     }
 
-    public void onSubmitClick(View view) {
+
+
+    public void onClick(View view) {
         String titleScan = titleInput.getText().toString();
         Log.d("name", titleScan);
 
@@ -67,16 +71,6 @@ public class MainActivity extends AppCompatActivity {
         task.setCompleted(completedBox);
 
         mDBHelper.createTask(task);
-
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.sound);
-
-        Button play_button = (Button)this.findViewById(R.id.button);
-        play_button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Log.v("sound", "Playing sound...");
-                mp.start();
-            }
-        });
 
         Toast.makeText(this, "Task saved.",
                 Toast.LENGTH_SHORT).show();

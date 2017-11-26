@@ -2,6 +2,7 @@ package com.example.huascar.checkd.activities;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,7 @@ public class CheckdTaskList extends AppCompatActivity {
 
     private SQLiteDatabase mDatabase;
     private DatabaseHelper mDBHelper;
+    private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,8 @@ public class CheckdTaskList extends AppCompatActivity {
         ListView listView = findViewById(R.id.checkdlist);
 
         listView.setAdapter(taskListCheckdAdapter);
+
+        mp = MediaPlayer.create(this,  R.raw.kookaburra);
 
     }
 
