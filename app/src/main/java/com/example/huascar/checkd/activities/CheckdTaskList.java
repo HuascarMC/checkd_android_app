@@ -21,7 +21,6 @@ public class CheckdTaskList extends AppCompatActivity {
 
     private SQLiteDatabase mDatabase;
     private DatabaseHelper mDBHelper;
-    private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +37,6 @@ public class CheckdTaskList extends AppCompatActivity {
         ListView listView = findViewById(R.id.checkdlist);
 
         listView.setAdapter(taskListCheckdAdapter);
-
-        mp = MediaPlayer.create(this,  R.raw.kookaburra);
 
     }
 

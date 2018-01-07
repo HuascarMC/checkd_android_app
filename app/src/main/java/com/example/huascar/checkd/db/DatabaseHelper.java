@@ -34,8 +34,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TASKS_TABLE = "CREATE TABLE " + TABLE_NAME + "( "
-        + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_TITLE + " TEXT, "
-        + KEY_DESCRIPTION + " TEXT, " + KEY_COMPLETED + " INTEGER )";
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_TITLE + " TEXT, "
+                + KEY_DESCRIPTION + " TEXT, " + KEY_COMPLETED + " INTEGER )";
         db.execSQL(CREATE_TASKS_TABLE);
     }
 
@@ -68,7 +68,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 task.setId((cursor.getInt(0)));
                 task.setTitle(cursor.getString(1));
                 task.setDescription(cursor.getString(2));
-                task.setCompleted(cursor.getInt(3) == 1 );
+                task.setCompleted(cursor.getInt(3) == 1);
 
                 taskList.add(task);
             }
@@ -90,7 +90,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 task.setId((cursor.getInt(0)));
                 task.setTitle(cursor.getString(1));
                 task.setDescription(cursor.getString(2));
-                task.setCompleted(cursor.getInt(3) == 1 );
+                task.setCompleted(cursor.getInt(3) == 1);
 
                 if (task.getCompletedBoolean() == true) {
                     taskList.add(task);
@@ -114,7 +114,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 task.setId((cursor.getInt(0)));
                 task.setTitle(cursor.getString(1));
                 task.setDescription(cursor.getString(2));
-                task.setCompleted(cursor.getInt(3) == 1 );
+                task.setCompleted(cursor.getInt(3) == 1);
 
                 if (task.getCompletedBoolean() == false) {
                     taskList.add(task);
@@ -143,8 +143,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         delete(id);
     }
 
-
-
     public void delete(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME + " WHERE ID =" + id);
@@ -160,13 +158,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         cursor.moveToFirst();
 
-
         task.setId(cursor.getInt(0));
         task.setTitle(cursor.getString(1));
         task.setDescription(cursor.getString(2));
-        task.setCompleted(cursor.getInt(3) == 1 );
+        task.setCompleted(cursor.getInt(3) == 1);
         db.close();
         return task;
     }
-
 }
