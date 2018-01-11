@@ -119,7 +119,6 @@ public class MainActivity extends AppCompatActivity {
                     "Add new task",
                     Toast.LENGTH_SHORT).show();
         }
-
         return true;
     }
 

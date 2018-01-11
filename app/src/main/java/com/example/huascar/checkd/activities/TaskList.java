@@ -70,9 +70,6 @@ public class TaskList extends AppCompatActivity {
 
     }
 
-
-
-
     public void getTask(View viewMore) {
         Task selectedTask = (Task) viewMore.getTag();
         Intent intent = new Intent(this, EditTask.class);
