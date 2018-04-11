@@ -36,7 +36,7 @@ public class TaskTest {
 
     @Test
     public void testGetCompleted() {
-        assertEquals(Boolean.TRUE, task.getCompleted().toString());
+        assertEquals((Boolean.TRUE).toString(), task.getCompleted().toString());
     }
 
 
