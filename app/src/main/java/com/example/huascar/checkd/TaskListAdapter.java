@@ -19,7 +19,7 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
     private TextView taskDesc;
     private TextView completedBox;
 
-    public TaskListAdapter(Context context, ArrayList<Task> tasks) {
+    public TaskListAdapter(Context context, ArrayList<Task> tasks)  {
         super(context, 0, tasks);
     }
 
